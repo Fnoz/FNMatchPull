@@ -11,7 +11,6 @@
 		10418D561D1D8CB1009A6699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10418D4A1D1D8CB1009A6699 /* Assets.xcassets */; };
 		10418D571D1D8CB1009A6699 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10418D4B1D1D8CB1009A6699 /* LaunchScreen.storyboard */; };
 		10418D581D1D8CB1009A6699 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10418D4D1D1D8CB1009A6699 /* Main.storyboard */; };
-		10418D591D1D8CB1009A6699 /* FNAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10418D501D1D8CB1009A6699 /* FNAssets.xcassets */; };
 		10418D5B1D1D8CB1009A6699 /* FNMatchPullTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10418D521D1D8CB1009A6699 /* FNMatchPullTableViewCell.swift */; };
 		10418D5C1D1D8CB1009A6699 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10418D531D1D8CB1009A6699 /* Info.plist */; };
 		10418D5D1D1D8CB1009A6699 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10418D541D1D8CB1009A6699 /* ViewController.swift */; };
@@ -26,7 +25,6 @@
 		10418D4A1D1D8CB1009A6699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10418D4C1D1D8CB1009A6699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10418D4E1D1D8CB1009A6699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		10418D501D1D8CB1009A6699 /* FNAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FNAssets.xcassets; sourceTree = "<group>"; };
 		10418D521D1D8CB1009A6699 /* FNMatchPullTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchPullTableViewCell.swift; sourceTree = "<group>"; };
 		10418D531D1D8CB1009A6699 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10418D541D1D8CB1009A6699 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 		10418D4F1D1D8CB1009A6699 /* FNMatchPull */ = {
 			isa = PBXGroup;
 			children = (
-				10418D501D1D8CB1009A6699 /* FNAssets.xcassets */,
 				10ACB2EE1D1E177C00B43E32 /* FNMatchPullAnimator.swift */,
 				10ACB2F01D1E197100B43E32 /* FNMatchPullView.swift */,
 				10C136A41D1EC67000D63AAF /* FNMatchPullMatch.swift */,
@@ -173,7 +170,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10418D591D1D8CB1009A6699 /* FNAssets.xcassets in Resources */,
 				10418D581D1D8CB1009A6699 /* Main.storyboard in Resources */,
 				10418D561D1D8CB1009A6699 /* Assets.xcassets in Resources */,
 				10418D5C1D1D8CB1009A6699 /* Info.plist in Resources */,
