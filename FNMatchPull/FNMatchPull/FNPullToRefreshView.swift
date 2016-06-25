@@ -1,5 +1,5 @@
 //
-// PullToRefreshView.swift
+// FNPullToRefreshView.swift
 //
 // Copyright (c) 2014 Josip Cavar
 //
@@ -27,27 +27,27 @@ import QuartzCore
 private var KVOContext = "RefresherKVOContext"
 private let ContentOffsetKeyPath = "contentOffset"
 
-public enum PullToRefreshViewState {
+public enum FNPullToRefreshViewState {
 
     case Loading
     case PullToRefresh
     case ReleaseToRefresh
 }
 
-public protocol PullToRefreshViewDelegate {
+public protocol FNPullToRefreshViewDelegate {
     
-    func pullToRefreshAnimationDidStart(view: PullToRefreshView)
-    func pullToRefreshAnimationDidEnd(view: PullToRefreshView)
-    func pullToRefresh(view: PullToRefreshView, progressDidChange progress: CGFloat)
-    func pullToRefresh(view: PullToRefreshView, stateDidChange state: PullToRefreshViewState)
+    func pullToRefreshAnimationDidStart(view: FNPullToRefreshView)
+    func pullToRefreshAnimationDidEnd(view: FNPullToRefreshView)
+    func pullToRefresh(view: FNPullToRefreshView, progressDidChange progress: CGFloat)
+    func pullToRefresh(view: FNPullToRefreshView, stateDidChange state: FNPullToRefreshViewState)
 }
 
-public class PullToRefreshView: UIView {
+public class FNPullToRefreshView: UIView {
     
     private var scrollViewBouncesDefaultValue: Bool = false
     private var scrollViewInsetsDefaultValue: UIEdgeInsets = UIEdgeInsetsZero
 
-    private var animator: PullToRefreshViewDelegate
+    private var animator: FNPullToRefreshViewDelegate
     private var action: (() -> ()) = {}
 
     private var previousOffset: CGFloat = 0
@@ -71,32 +71,32 @@ public class PullToRefreshView: UIView {
     convenience init(action :(() -> ()), frame: CGRect) {
         var bounds = frame
         bounds.origin.y = 0
-        let animator = Animator(frame: bounds)
+        let animator = FNAnimator(frame: bounds)
         self.init(frame: frame, animator: animator)
         self.action = action;
         addSubview(animator.animatorView)
     }
 
-    convenience init(action :(() -> ()), frame: CGRect, animator: PullToRefreshViewDelegate, subview: UIView) {
+    convenience init(action :(() -> ()), frame: CGRect, animator: FNPullToRefreshViewDelegate, subview: UIView) {
         self.init(frame: frame, animator: animator)
         self.action = action;
         subview.frame = self.bounds
         addSubview(subview)
     }
     
-    convenience init(action :(() -> ()), frame: CGRect, animator: PullToRefreshViewDelegate) {
+    convenience init(action :(() -> ()), frame: CGRect, animator: FNPullToRefreshViewDelegate) {
         self.init(frame: frame, animator: animator)
         self.action = action;
     }
     
-    init(frame: CGRect, animator: PullToRefreshViewDelegate) {
+    init(frame: CGRect, animator: FNPullToRefreshViewDelegate) {
         self.animator = animator
         super.init(frame: frame)
         self.autoresizingMask = .FlexibleWidth
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        self.animator = Animator(frame: CGRectZero)
+        self.animator = FNAnimator(frame: CGRectZero)
         super.init(coder: aDecoder)
         // Currently it is not supported to load view from nib
     }

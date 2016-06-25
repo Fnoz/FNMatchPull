@@ -12,12 +12,12 @@
 		10C136B81D1EEF0000D63AAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C136B61D1EEF0000D63AAF /* Main.storyboard */; };
 		10C136BA1D1EEF0000D63AAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C136B91D1EEF0000D63AAF /* Assets.xcassets */; };
 		10C136BD1D1EEF0000D63AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C136BB1D1EEF0000D63AAF /* LaunchScreen.storyboard */; };
-		10C136CB1D1EEF5D00D63AAF /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136C51D1EEF5D00D63AAF /* Animator.swift */; };
+		10C136CB1D1EEF5D00D63AAF /* FNAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136C51D1EEF5D00D63AAF /* FNAnimator.swift */; };
 		10C136CC1D1EEF5D00D63AAF /* FNMatchPullAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136C61D1EEF5D00D63AAF /* FNMatchPullAnimator.swift */; };
 		10C136CD1D1EEF5D00D63AAF /* FNMatchPullMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136C71D1EEF5D00D63AAF /* FNMatchPullMatch.swift */; };
 		10C136CE1D1EEF5D00D63AAF /* FNMatchPullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136C81D1EEF5D00D63AAF /* FNMatchPullView.swift */; };
-		10C136CF1D1EEF5D00D63AAF /* PullToRefreshExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136C91D1EEF5D00D63AAF /* PullToRefreshExtension.swift */; };
-		10C136D01D1EEF5D00D63AAF /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136CA1D1EEF5D00D63AAF /* PullToRefreshView.swift */; };
+		10C136CF1D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136C91D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift */; };
+		10C136D01D1EEF5D00D63AAF /* FNPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */; };
 		10C136D21D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136D11D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,12 +29,12 @@
 		10C136B91D1EEF0000D63AAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10C136BC1D1EEF0000D63AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10C136BE1D1EEF0000D63AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10C136C51D1EEF5D00D63AAF /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		10C136C51D1EEF5D00D63AAF /* FNAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNAnimator.swift; sourceTree = "<group>"; };
 		10C136C61D1EEF5D00D63AAF /* FNMatchPullAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchPullAnimator.swift; sourceTree = "<group>"; };
 		10C136C71D1EEF5D00D63AAF /* FNMatchPullMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchPullMatch.swift; sourceTree = "<group>"; };
 		10C136C81D1EEF5D00D63AAF /* FNMatchPullView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchPullView.swift; sourceTree = "<group>"; };
-		10C136C91D1EEF5D00D63AAF /* PullToRefreshExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshExtension.swift; sourceTree = "<group>"; };
-		10C136CA1D1EEF5D00D63AAF /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
+		10C136C91D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNPullToRefreshExtension.swift; sourceTree = "<group>"; };
+		10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNPullToRefreshView.swift; sourceTree = "<group>"; };
 		10C136D11D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchPullTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,9 +83,9 @@
 		10C136C41D1EEF5D00D63AAF /* FNMatchPull */ = {
 			isa = PBXGroup;
 			children = (
-				10C136C51D1EEF5D00D63AAF /* Animator.swift */,
-				10C136C91D1EEF5D00D63AAF /* PullToRefreshExtension.swift */,
-				10C136CA1D1EEF5D00D63AAF /* PullToRefreshView.swift */,
+				10C136C51D1EEF5D00D63AAF /* FNAnimator.swift */,
+				10C136C91D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift */,
+				10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */,
 				10C136C61D1EEF5D00D63AAF /* FNMatchPullAnimator.swift */,
 				10C136C71D1EEF5D00D63AAF /* FNMatchPullMatch.swift */,
 				10C136C81D1EEF5D00D63AAF /* FNMatchPullView.swift */,
@@ -164,11 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10C136CB1D1EEF5D00D63AAF /* Animator.swift in Sources */,
-				10C136CF1D1EEF5D00D63AAF /* PullToRefreshExtension.swift in Sources */,
+				10C136CB1D1EEF5D00D63AAF /* FNAnimator.swift in Sources */,
+				10C136CF1D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift in Sources */,
 				10C136CC1D1EEF5D00D63AAF /* FNMatchPullAnimator.swift in Sources */,
 				10C136CD1D1EEF5D00D63AAF /* FNMatchPullMatch.swift in Sources */,
-				10C136D01D1EEF5D00D63AAF /* PullToRefreshView.swift in Sources */,
+				10C136D01D1EEF5D00D63AAF /* FNPullToRefreshView.swift in Sources */,
 				10C136D21D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift in Sources */,
 				10C136CE1D1EEF5D00D63AAF /* FNMatchPullView.swift in Sources */,
 				10C136B51D1EEF0000D63AAF /* ViewController.swift in Sources */,
@@ -322,6 +322,7 @@
 				10C136C31D1EEF0000D63AAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

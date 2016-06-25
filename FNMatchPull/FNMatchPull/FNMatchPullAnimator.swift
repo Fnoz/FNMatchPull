@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FNMatchPullAnimator: UIView, PullToRefreshViewDelegate {
+class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
     var matchPullView:FNMatchPullView!
     var startPoints:NSArray? {
         didSet {
@@ -41,21 +41,21 @@ class FNMatchPullAnimator: UIView, PullToRefreshViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func pullToRefresh(view: PullToRefreshView, progressDidChange progress: CGFloat) {
+    func pullToRefresh(view: FNPullToRefreshView, progressDidChange progress: CGFloat) {
         let validProgress = CGFloat(min(progress, 1.0))
         matchPullView.progress = validProgress
         matchPullView.center = CGPointMake(matchPullView.center.x, frame.size.height/2 + frame.size.height/2 * (1 - validProgress))
     }
     
-    func pullToRefresh(view: PullToRefreshView, stateDidChange state: PullToRefreshViewState) {
+    func pullToRefresh(view: FNPullToRefreshView, stateDidChange state: FNPullToRefreshViewState) {
         
     }
     
-    func pullToRefreshAnimationDidEnd(view: PullToRefreshView) {
+    func pullToRefreshAnimationDidEnd(view: FNPullToRefreshView) {
         matchPullView.endBling()
     }
     
-    func pullToRefreshAnimationDidStart(view: PullToRefreshView) {
+    func pullToRefreshAnimationDidStart(view: FNPullToRefreshView) {
         matchPullView.startBling()
     }
     

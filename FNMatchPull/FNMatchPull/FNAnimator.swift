@@ -25,7 +25,7 @@ import Foundation
 import QuartzCore
 import UIKit
 
-internal class AnimatorView: UIView {
+internal class FNAnimatorView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -50,7 +50,7 @@ internal class AnimatorView: UIView {
         
         let leftTitleConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Left, relatedBy: .Equal, toItem: activityIndicatorView, attribute: .Right, multiplier: 1, constant: 16)
         let centerTitleConstraint = NSLayoutConstraint(item: self, attribute: .CenterY, relatedBy: .Equal, toItem: titleLabel, attribute: .CenterY, multiplier: 1, constant: 0)
-
+        
         addConstraints([leftActivityConstraint, centerActivityConstraint, leftTitleConstraint, centerTitleConstraint])
     }
     
@@ -59,29 +59,29 @@ internal class AnimatorView: UIView {
     }
 }
 
-class Animator: PullToRefreshViewDelegate {
+class FNAnimator: FNPullToRefreshViewDelegate {
     
-    internal let animatorView: AnimatorView
-
+    internal let animatorView: FNAnimatorView
+    
     init(frame: CGRect) {
-        animatorView = AnimatorView(frame: frame)
+        animatorView = FNAnimatorView(frame: frame)
     }
     
-    func pullToRefreshAnimationDidStart(view: PullToRefreshView) {
+    func pullToRefreshAnimationDidStart(view: FNPullToRefreshView) {
         animatorView.activityIndicatorView.startAnimating()
         animatorView.titleLabel.text = "Loading"
     }
     
-    func pullToRefreshAnimationDidEnd(view: PullToRefreshView) {
+    func pullToRefreshAnimationDidEnd(view: FNPullToRefreshView) {
         animatorView.activityIndicatorView.stopAnimating()
         animatorView.titleLabel.text = ""
     }
     
-    func pullToRefresh(view: PullToRefreshView, progressDidChange progress: CGFloat) {
+    func pullToRefresh(view: FNPullToRefreshView, progressDidChange progress: CGFloat) {
         
     }
     
-    func pullToRefresh(view: PullToRefreshView, stateDidChange state: PullToRefreshViewState) {
+    func pullToRefresh(view: FNPullToRefreshView, stateDidChange state: FNPullToRefreshViewState) {
         switch state {
         case .Loading:
             animatorView.titleLabel.text = "Loading"
