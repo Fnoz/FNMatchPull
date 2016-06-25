@@ -10,4 +10,5 @@ import UIKit
 
 class FNMatchPullMatch: UIView {
     var angle:CGFloat = 0
+    var oriCenter:CGPoint = CGPointMake(0, 0)
 }
