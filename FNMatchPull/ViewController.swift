@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EasyPull
 
 let SCREENWIDTH = UIScreen.mainScreen().bounds.width
 let SCREENHEIGHT = UIScreen.mainScreen().bounds.height
@@ -25,13 +24,6 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         tableView.separatorStyle = .SingleLineEtched
         tableView.showsVerticalScrollIndicator = false
         self.view.addSubview(tableView)
-        
-        func delayStopDrop() {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-                self.tableView.easy_stopDropPull()
-            })
-        }
         
         let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
         matchAnimator.startPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),

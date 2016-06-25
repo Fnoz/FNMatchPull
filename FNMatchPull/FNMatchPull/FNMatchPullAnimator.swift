@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Refresher
 
 class FNMatchPullAnimator: UIView, PullToRefreshViewDelegate {
     var matchPullView:FNMatchPullView!
