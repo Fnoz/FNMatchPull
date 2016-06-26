@@ -18,9 +18,15 @@ class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
     var style:FNMatchPullStyle! {
         didSet {
             matchPullView.style = style
+            matchPullView.initMatch()
         }
     }
-    var text:NSString!
+    var text:NSString! {
+        didSet {
+            matchPullView.text = text
+            matchPullView.initMatch()
+        }
+    }
     var startPoints:NSArray? {
         didSet {
             matchPullView.startPoints = startPoints!

@@ -19,6 +19,7 @@
 		10C136CF1D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136C91D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift */; };
 		10C136D01D1EEF5D00D63AAF /* FNPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */; };
 		10C136D21D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136D11D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift */; };
+		10C136D41D1F7AA700D63AAF /* FNMatchFontParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136D31D1F7AA700D63AAF /* FNMatchFontParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		10C136C91D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNPullToRefreshExtension.swift; sourceTree = "<group>"; };
 		10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNPullToRefreshView.swift; sourceTree = "<group>"; };
 		10C136D11D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchPullTableViewCell.swift; sourceTree = "<group>"; };
+		10C136D31D1F7AA700D63AAF /* FNMatchFontParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchFontParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		10C136C41D1EEF5D00D63AAF /* FNMatchPull */ = {
 			isa = PBXGroup;
 			children = (
+				10C136D31D1F7AA700D63AAF /* FNMatchFontParser.swift */,
 				10C136C61D1EEF5D00D63AAF /* FNMatchPullAnimator.swift */,
 				10C136C81D1EEF5D00D63AAF /* FNMatchPullView.swift */,
 				10C136C71D1EEF5D00D63AAF /* FNMatchPullMatch.swift */,
@@ -171,6 +174,7 @@
 				10C136D01D1EEF5D00D63AAF /* FNPullToRefreshView.swift in Sources */,
 				10C136D21D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift in Sources */,
 				10C136CE1D1EEF5D00D63AAF /* FNMatchPullView.swift in Sources */,
+				10C136D41D1F7AA700D63AAF /* FNMatchFontParser.swift in Sources */,
 				10C136B51D1EEF0000D63AAF /* ViewController.swift in Sources */,
 				10C136B31D1EEF0000D63AAF /* AppDelegate.swift in Sources */,
 			);

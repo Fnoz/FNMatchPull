@@ -13,10 +13,11 @@ let verticalMove = CGFloat(100.0)
 let pullViewHeight = CGFloat(80.0)
 
 class FNMatchPullView: UIView {
-    var style:FNMatchPullStyle!
+    var style:FNMatchPullStyle?
+    var text:NSString?
+    var startPoints:NSArray?
+    var endPoints:NSArray?
     var matchViews:NSMutableArray = []
-    var startPoints:NSArray = []
-    var endPoints:NSArray = []
     var timer:NSTimer!
     var progress:CGFloat = 0.0 {
         didSet {
@@ -24,10 +25,18 @@ class FNMatchPullView: UIView {
         }
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        startPoints = []
+        endPoints = []
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func initMatch() {
-        if startPoints.count != endPoints.count || startPoints.count == 0{
-            return
-        }
         //remove old matchs
         if matchViews.count > 0 {
             for i in 0 ... matchViews.count - 1 {
@@ -40,15 +49,19 @@ class FNMatchPullView: UIView {
             updateTextToPoints()
         }
         
+        if startPoints?.count != endPoints?.count || startPoints?.count == 0{
+            return
+        }
+        
         matchViews.removeAllObjects()
         matchViews = NSMutableArray.init(array: [])
         //build new matchs
-        for i in 0 ... startPoints.count - 1 {
+        for i in 0 ... (startPoints?.count)! - 1 {
             let match = FNMatchPullMatch.init()
             match.backgroundColor = UIColor.whiteColor()
             match.alpha = 0.3
-            let startPoint = (startPoints[i] as! NSValue).CGPointValue()
-            let endPoint = (endPoints[i] as! NSValue).CGPointValue()
+            let startPoint = (startPoints?[i] as! NSValue).CGPointValue()
+            let endPoint = (endPoints?[i] as! NSValue).CGPointValue()
             let aaa = (endPoint.x - startPoint.x)*(endPoint.x - startPoint.x)+(endPoint.y - startPoint.y)*(endPoint.y - startPoint.y)
             match.frame = CGRectMake(0, 0, sqrt(aaa), 2)
             if i%2 == 0 {
@@ -59,14 +72,17 @@ class FNMatchPullView: UIView {
             }
             match.oriCenter = match.center
             match.angle = atan((endPoint.y - startPoint.y)/(endPoint.x - startPoint.x)) + CGFloat(M_PI)
-            match.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI) + match.angle)
+            let rotate = CGAffineTransformMakeRotation(CGFloat(-M_PI) + match.angle)
+            match.transform = CGAffineTransformScale(rotate, 0, 0)
             addSubview(match)
             matchViews.addObject(match)
         }
     }
     
     func updateTextToPoints() {
-        
+        let (startPointsNew, endPointsNew) = FNMatchFontParser.parserText(text!)
+        startPoints = startPointsNew
+        endPoints = endPointsNew
     }
     
     func refreshView(progress:CGFloat) {
@@ -84,18 +100,20 @@ class FNMatchPullView: UIView {
             else if progressHandled>1 {
                 progressHandled = 1
             }
-            let startPoint = (startPoints[i] as! NSValue).CGPointValue()
-            let endPoint = (endPoints[i] as! NSValue).CGPointValue()
+            let startPoint = (startPoints![i] as! NSValue).CGPointValue()
+            let endPoint = (endPoints![i] as! NSValue).CGPointValue()
             let centerPoint = CGPointMake((startPoint.x + endPoint.x)/2, (startPoint.y + endPoint.y)/2)
             let newCenterPoint:CGPoint
             let match = matchViews[i] as! FNMatchPullMatch
             if i%2 == 0 {
                 newCenterPoint = CGPointMake(centerPoint.x - horizontalMove * (1 - progressHandled), centerPoint.y - verticalMove * (1 - progressHandled))
-                match.transform = CGAffineTransformMakeRotation(match.angle + CGFloat(M_PI) * progressHandled)
+                let rotate = CGAffineTransformMakeRotation(match.angle + CGFloat(M_PI) * progressHandled)
+                match.transform = CGAffineTransformScale(rotate, progressHandled, progressHandled)
             }
             else {
                 newCenterPoint = CGPointMake(centerPoint.x + horizontalMove * (1 - progressHandled), centerPoint.y - verticalMove * (1 - progressHandled))
-                match.transform = CGAffineTransformMakeRotation(match.angle + CGFloat(M_PI) * progressHandled)
+                let rotate = CGAffineTransformMakeRotation(match.angle + CGFloat(M_PI) * progressHandled)
+                match.transform = CGAffineTransformScale(rotate, progressHandled, progressHandled)
             }
             match.center = newCenterPoint
         }
