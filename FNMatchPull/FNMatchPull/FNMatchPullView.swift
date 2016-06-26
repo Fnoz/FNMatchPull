@@ -13,7 +13,7 @@ let verticalMove = CGFloat(100.0)
 let pullViewHeight = CGFloat(80.0)
 
 class FNMatchPullView: UIView {
-    
+    var style:FNMatchPullStyle!
     var matchViews:NSMutableArray = []
     var startPoints:NSArray = []
     var endPoints:NSArray = []
@@ -34,6 +34,10 @@ class FNMatchPullView: UIView {
                 let match = matchViews[i] as! FNMatchPullMatch
                 match.removeFromSuperview()
             }
+        }
+        
+        if style == .Text {
+            updateTextToPoints()
         }
         
         matchViews.removeAllObjects()
@@ -61,8 +65,15 @@ class FNMatchPullView: UIView {
         }
     }
     
+    func updateTextToPoints() {
+        
+    }
+    
     func refreshView(progress:CGFloat) {
         let validProgress = min(progress, 1.0)  //限制到1以下
+        if matchViews.count == 0 {
+            return
+        }
         for i in 0 ... matchViews.count - 1 {
             let duration = 0.6
             let interval = CGFloat((1-duration)/Double(matchViews.count - 1))
@@ -98,14 +109,17 @@ class FNMatchPullView: UIView {
     }
     
     @objc func addAnimation() {
-        let interval = 1.5/Double(matchViews.count)
+        if matchViews.count == 0 {
+            return
+        }
+        let interval = 1.3/Double(matchViews.count)
         for i in 0 ... matchViews.count - 1 {
             let match = matchViews[i] as! FNMatchPullMatch
-            UIView.animateWithDuration(0.3, delay: interval * Double(i), options: .CurveLinear, animations: {
+            UIView.animateWithDuration(0.4, delay: interval * Double(i), options: .CurveLinear, animations: {
                 match.alpha = 1;
                 }, completion: { (fff) in
                     UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
-                        match.alpha = 0.3
+                        match.alpha = 0.4
                         }, completion: nil)
             })
         }
@@ -113,6 +127,9 @@ class FNMatchPullView: UIView {
     
     func endBling() {
         timer.invalidate()
+        if matchViews.count == 0 {
+            return
+        }
         for i in 0 ... matchViews.count - 1 {
             let match = matchViews[i] as! FNMatchPullMatch
             match.layer.removeAllAnimations()

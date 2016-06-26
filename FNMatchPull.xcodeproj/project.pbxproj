@@ -83,12 +83,12 @@
 		10C136C41D1EEF5D00D63AAF /* FNMatchPull */ = {
 			isa = PBXGroup;
 			children = (
+				10C136C61D1EEF5D00D63AAF /* FNMatchPullAnimator.swift */,
+				10C136C81D1EEF5D00D63AAF /* FNMatchPullView.swift */,
+				10C136C71D1EEF5D00D63AAF /* FNMatchPullMatch.swift */,
 				10C136C51D1EEF5D00D63AAF /* FNAnimator.swift */,
 				10C136C91D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift */,
 				10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */,
-				10C136C61D1EEF5D00D63AAF /* FNMatchPullAnimator.swift */,
-				10C136C71D1EEF5D00D63AAF /* FNMatchPullMatch.swift */,
-				10C136C81D1EEF5D00D63AAF /* FNMatchPullView.swift */,
 			);
 			path = FNMatchPull;
 			sourceTree = "<group>";

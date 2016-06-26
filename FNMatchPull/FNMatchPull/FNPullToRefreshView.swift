@@ -173,7 +173,7 @@ public class FNPullToRefreshView: UIView {
         self.animator.pullToRefreshAnimationDidEnd(self)
         let scrollView = superview as! UIScrollView
         scrollView.bounces = self.scrollViewBouncesDefaultValue
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animateWithDuration(1.0, animations: {
             scrollView.contentInset = self.scrollViewInsetsDefaultValue
         }) { finished in
             self.animator.pullToRefresh(self, progressDidChange: 0)

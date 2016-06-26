@@ -26,30 +26,32 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         self.view.addSubview(tableView)
         
         let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
-        matchAnimator.startPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 55))]
-        matchAnimator.endPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 - 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 - 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 - 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 - 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 + 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 + 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 + 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 + 30, 40))]
+        matchAnimator.text = "FNOZ"
+        matchAnimator.style = .Text
+//        matchAnimator.startPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 25)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 55)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 55)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 25)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 25)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 55)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 55)),
+//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 25))]
+//        matchAnimator.endPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 - 30, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 - 30, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 - 30, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 - 30, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 + 30, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 + 30, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 + 30, 40)),
+//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 + 30, 40))]
         tableView.addPullToRefreshWithAction({
             NSOperationQueue().addOperationWithBlock {
                 sleep(4)

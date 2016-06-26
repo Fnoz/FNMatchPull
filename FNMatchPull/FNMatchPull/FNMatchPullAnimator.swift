@@ -8,8 +8,19 @@
 
 import UIKit
 
+enum FNMatchPullStyle:NSInteger{
+    case Pattern = 0
+    case Text = 1
+}
+
 class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
     var matchPullView:FNMatchPullView!
+    var style:FNMatchPullStyle! {
+        didSet {
+            matchPullView.style = style
+        }
+    }
+    var text:NSString!
     var startPoints:NSArray? {
         didSet {
             matchPullView.startPoints = startPoints!
