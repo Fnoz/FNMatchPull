@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 let fontWidth = CGFloat(25.0)
-let fontHeight = CGFloat(40.0)
+let fontHeight = CGFloat(25.0)
 let fontWidthWithMargin = CGFloat(35.0)
 
 class FNMatchFontParser: NSObject {

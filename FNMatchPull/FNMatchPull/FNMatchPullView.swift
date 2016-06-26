@@ -152,5 +152,23 @@ class FNMatchPullView: UIView {
             let match = matchViews[i] as! FNMatchPullMatch
             match.layer.removeAllAnimations()
         }
+        
+        UIView.animateWithDuration(1) { 
+            self.frame = CGRectMake(self.frame.origin.x, pullViewHeight/2, self.frame.size.width, self.frame.size.height)
+        }
+        
+        //delay a bit of time as progress = 0 will perform later
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.01 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            for i in 0 ... self.matchViews.count - 1 {
+                let match = self.matchViews[i] as! FNMatchPullMatch
+                UIView.animateWithDuration(0.5, delay: 0.6/Double(self.matchViews.count) * Double(self.matchViews.count - i), options: .CurveLinear, animations: {
+                    let rotate = CGAffineTransformMakeRotation(CGFloat(-M_PI) + match.angle)
+                    match.transform = CGAffineTransformScale(rotate, 1, 1)
+                    match.center = match.oriCenter
+                    }, completion: nil)
+            }
+        }
+
     }
 }
