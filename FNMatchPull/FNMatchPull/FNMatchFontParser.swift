@@ -22,6 +22,9 @@ class FNMatchFontParser: NSObject {
         for i in 0 ... text.length - 1 {
             let char = text.substringWithRange(NSMakeRange(i, 1))
             let (startPointsToAdd, endPointsToAdd) = parserChar(char)
+            if startPointsToAdd.count == 0 || endPointsToAdd.count == 0 {
+                continue
+            }
             for j in 0 ... startPointsToAdd.count - 1 {
                 var startPoint = (startPointsToAdd[j] as! NSValue).CGPointValue()
                 startPoint.x += leftMargin + CGFloat(i) * fontWidthWithMargin
