@@ -26,7 +26,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         self.view.addSubview(tableView)
         
         let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
-        matchAnimator.text = "ABCD"
+        matchAnimator.text = "JKLMN"
         matchAnimator.style = .Text
 //        matchAnimator.startPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
 //                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),

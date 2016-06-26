@@ -163,8 +163,8 @@ class FNMatchPullView: UIView {
             for i in 0 ... self.matchViews.count - 1 {
                 let match = self.matchViews[i] as! FNMatchPullMatch
                 UIView.animateWithDuration(0.5, delay: 0.6/Double(self.matchViews.count) * Double(self.matchViews.count - i), options: .CurveLinear, animations: {
-                    let rotate = CGAffineTransformMakeRotation(CGFloat(-M_PI) + match.angle)
-                    match.transform = CGAffineTransformScale(rotate, 1, 1)
+                    let rotate = CGAffineTransformMakeRotation(match.angle)
+                    match.transform = CGAffineTransformScale(rotate, 0.1, 0.1)
                     match.center = match.oriCenter
                     }, completion: nil)
             }
