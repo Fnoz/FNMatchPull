@@ -17,7 +17,7 @@ class FNMatchFontParser: NSObject {
     class func parserText(text:NSString) -> (NSArray, NSArray) {
         var startPoints:NSMutableArray = []
         var endPoints:NSMutableArray = []
-        let leftMargin = (SCREENWIDTH - fontWidthWithMargin * CGFloat(text.length) - fontWidthWithMargin + fontWidth)/2
+        let leftMargin = (SCREENWIDTH - fontWidthWithMargin * CGFloat(text.length) + fontWidthWithMargin - fontWidth)/2
         let topMargin = (pullViewHeight - fontHeight)/2
         for i in 0 ... text.length - 1 {
             let char = text.substringWithRange(NSMakeRange(i, 1))
