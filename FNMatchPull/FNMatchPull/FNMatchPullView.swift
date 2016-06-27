@@ -13,6 +13,7 @@ let verticalMove = CGFloat(100.0)
 let pullViewHeight = CGFloat(80.0)
 
 class FNMatchPullView: UIView {
+    var lineWidth:CGFloat! = CGFloat(2)
     var style:FNMatchPullStyle?
     var text:NSString?
     var startPoints:NSArray?
@@ -63,7 +64,7 @@ class FNMatchPullView: UIView {
             let startPoint = (startPoints?[i] as! NSValue).CGPointValue()
             let endPoint = (endPoints?[i] as! NSValue).CGPointValue()
             let aaa = (endPoint.x - startPoint.x)*(endPoint.x - startPoint.x)+(endPoint.y - startPoint.y)*(endPoint.y - startPoint.y)
-            match.frame = CGRectMake(0, 0, sqrt(aaa), 2)
+            match.frame = CGRectMake(0, 0, sqrt(aaa), lineWidth)
             if i%2 == 0 {
                 match.center = CGPointMake((startPoint.x + endPoint.x)/2 - horizontalMove, (startPoint.y + endPoint.y)/2 - verticalMove)
             }
@@ -120,6 +121,8 @@ class FNMatchPullView: UIView {
     }
     
     func startBling() {
+        timer?.invalidate()
+        timer = nil
         timer = NSTimer.scheduledTimerWithTimeInterval(2.1,
                                                        target:self,selector:#selector(addAnimation),
                                                        userInfo:nil,repeats:true)
@@ -144,7 +147,8 @@ class FNMatchPullView: UIView {
     }
     
     func endBling() {
-        timer.invalidate()
+        timer?.invalidate()
+        timer = nil
         if matchViews.count == 0 {
             return
         }

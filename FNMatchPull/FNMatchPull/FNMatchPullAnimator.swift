@@ -27,6 +27,12 @@ class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
             matchPullView.initMatch()
         }
     }
+    var lineWidth:CGFloat? {
+        didSet {
+            matchPullView.lineWidth = lineWidth
+            matchPullView.initMatch()
+        }
+    }
     var startPoints:NSArray? {
         didSet {
             matchPullView.startPoints = startPoints!

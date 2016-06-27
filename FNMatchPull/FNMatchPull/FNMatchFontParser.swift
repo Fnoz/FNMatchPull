@@ -298,6 +298,74 @@ class FNMatchFontParser: NSObject {
                               NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.5)),
                               NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight))]
             break
+        case "U","u":
+            startPointsToAdd = [NSValue.init(CGPoint: CGPointMake(0, 0)),
+                                NSValue.init(CGPoint: CGPointMake(0, fontHeight * 0.5)),
+                                NSValue.init(CGPoint: CGPointMake(0, fontHeight)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth, 0)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight * 0.5))]
+            endPointsToAdd = [NSValue.init(CGPoint: CGPointMake(0, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(0, fontHeight)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight))]
+            break
+        case "V","v":
+            startPointsToAdd = [NSValue.init(CGPoint: CGPointMake(0, 0)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth * 0.25, fontHeight * 0.5)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth * 0.75, fontHeight * 0.5))]
+            endPointsToAdd = [NSValue.init(CGPoint: CGPointMake(fontWidth * 0.25, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.75, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth, 0))]
+            break
+        case "W","w":
+            startPointsToAdd = [NSValue.init(CGPoint: CGPointMake(fontWidth * -0.1, 0)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth * -0.05, fontHeight * 0.5)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.3)),
+                                NSValue.init(CGPoint: CGPointMake(0, fontHeight)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth * 1.05, fontHeight * 0.5))]
+            endPointsToAdd = [NSValue.init(CGPoint: CGPointMake(fontWidth * -0.05, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(0, fontHeight)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 1.05, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 1.1, 0))]
+            break
+        case "X","x":
+            startPointsToAdd = [NSValue.init(CGPoint: CGPointMake(0, 0)),
+                                NSValue.init(CGPoint: CGPointMake(0, fontHeight)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth, 0)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight))]
+            endPointsToAdd = [NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.5))]
+            break
+        case "Y","y":
+            startPointsToAdd = [NSValue.init(CGPoint: CGPointMake(0, 0)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth, 0)),
+                                NSValue.init(CGPoint: CGPointMake(0, fontHeight * 0.6)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.6))]
+            endPointsToAdd = [NSValue.init(CGPoint: CGPointMake(0, fontHeight * 0.6)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight * 0.6)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight * 0.6)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight))]
+            break
+        case "Z","z":
+            startPointsToAdd = [NSValue.init(CGPoint: CGPointMake(0, 0)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth, 0)),
+                                NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.5)),
+                                NSValue.init(CGPoint: CGPointMake(0, fontHeight))]
+            endPointsToAdd = [NSValue.init(CGPoint: CGPointMake(fontWidth, 0)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth * 0.5, fontHeight * 0.5)),
+                              NSValue.init(CGPoint: CGPointMake(0, fontHeight)),
+                              NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight))]
+            break
         default:
             break
         }
