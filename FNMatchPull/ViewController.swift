@@ -37,42 +37,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         
         tableView = newTableView()
         view.addSubview(tableView)
-        mode0()
-        
-//        let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
-//        matchAnimator.startPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 25)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 55)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 55)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 25)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 25)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 55)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 55)),
-//                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 25))]
-//        matchAnimator.endPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 - 30, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 - 30, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 - 30, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 - 30, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 + 30, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 + 30, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 + 30, 40)),
-//                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 + 30, 40))]
-//        tableView.addPullToRefreshWithAction({
-//            NSOperationQueue().addOperationWithBlock {
-//                sleep(4)
-//                NSOperationQueue.mainQueue().addOperationWithBlock {
-//                    self.tableView.stopPullToRefresh()
-//                }
-//            }
-//            }, withAnimator: matchAnimator)
-        
+        mode0()        
     }
     
     func modeChange(btn:UIButton) {
