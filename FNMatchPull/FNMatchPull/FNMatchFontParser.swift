@@ -366,6 +366,10 @@ class FNMatchFontParser: NSObject {
                               NSValue.init(CGPoint: CGPointMake(0, fontHeight)),
                               NSValue.init(CGPoint: CGPointMake(fontWidth, fontHeight))]
             break
+        case ",":
+            startPointsToAdd = [NSValue.init(CGPoint: CGPointMake(fontWidth * 0.35, fontHeight * 0.65))]
+            endPointsToAdd = [NSValue.init(CGPoint: CGPointMake(fontWidth * 0.35, fontHeight))]
+            break
         default:
             break
         }

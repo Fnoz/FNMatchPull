@@ -98,7 +98,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     
     func mode1() {
         let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
-        matchAnimator.text = "FNOZ"
+        matchAnimator.text = "HELLO,FNOZ"
         matchAnimator.style = .Text
         tableView.addPullToRefreshWithAction({
             NSOperationQueue().addOperationWithBlock {
@@ -112,7 +112,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     
     func mode2() {
         let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
-        matchAnimator.text = "FNOZ"
+        matchAnimator.text = "HELLO,FNOZ"
         matchAnimator.style = .Text
         matchAnimator.lineWidth = 4.0
         tableView.addPullToRefreshWithAction({
