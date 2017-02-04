@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
 	s.social_media_url   = "https://github.com/Fnoz"
 
 	s.platform     = :ios
+    s.ios.deployment_target = "8.0"
 	s.source       = { :git => "https://github.com/Fnoz/FNMatchPull.git", :tag => "0.2" }
 
 	s.source_files  = "FNMatchPull/FNMatchPull/*.{swift}"

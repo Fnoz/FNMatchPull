@@ -14,10 +14,11 @@ let fontHeight = CGFloat(25.0)
 let fontWidthWithMargin = CGFloat(35.0)
 
 class FNMatchFontParser: NSObject {
-    class func parserText(_ text:NSString) -> (NSArray, NSArray) {
-        var startPoints:NSMutableArray = []
-        var endPoints:NSMutableArray = []
-        let leftMargin = (SCREENWIDTH - fontWidthWithMargin * CGFloat(text.length) + fontWidthWithMargin - fontWidth)/2
+    
+    class func parserText(_ text: NSString, width: CGFloat) -> (NSArray, NSArray) {
+        let startPoints: NSMutableArray = []
+        let endPoints: NSMutableArray = []
+        let leftMargin = (width - fontWidthWithMargin * CGFloat(text.length) + fontWidthWithMargin - fontWidth)/2
         let topMargin = (pullViewHeight - fontHeight)/2
         for i in 0 ... text.length - 1 {
             let char = text.substring(with: NSMakeRange(i, 1))
@@ -42,7 +43,7 @@ class FNMatchFontParser: NSObject {
         return (startPoints, endPoints)
     }
     
-    class func parserChar(_ char:NSString) -> (NSMutableArray, NSMutableArray) {
+    class func parserChar(_ char: NSString) -> (NSMutableArray, NSMutableArray) {
         var startPointsToAdd:NSMutableArray = []
         var endPointsToAdd:NSMutableArray = []
         switch char {

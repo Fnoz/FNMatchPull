@@ -61,7 +61,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
     
     func mode0() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 80))
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: SCREENWIDTH, height: 80))
         matchAnimator.startPoints = [NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 25)),
                                      NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 55)),
                                      NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 55)),
@@ -97,7 +97,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
     
     func mode1() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 80))
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: SCREENWIDTH, height: 80))
         matchAnimator.text = "HELLO,FNOZ"
         matchAnimator.style = .text
         tableView.addPullToRefreshWithAction({
@@ -107,11 +107,11 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
                     self.tableView.stopPullToRefresh()
                 }
             }
-            }, withAnimator: matchAnimator)
+        }, withAnimator: matchAnimator)
     }
     
     func mode2() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 80))
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: SCREENWIDTH, height: 80))
         matchAnimator.text = "HELLO,FNOZ"
         matchAnimator.style = .text
         matchAnimator.lineWidth = 4.0

@@ -55,7 +55,7 @@ class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
         matchPullView.initMatch()
         addSubview(matchPullView);
         
-        let line = UIView.init(frame: CGRect(x: 0, y: frame.size.height - 1, width: SCREENWIDTH, height: 1))
+        let line = UIView.init(frame: CGRect(x: 0, y: frame.size.height - 1, width: frame.size.width, height: 1))
         line.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         addSubview(line)
     }

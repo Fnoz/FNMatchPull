@@ -81,7 +81,7 @@ class FNMatchPullView: UIView {
     }
     
     func updateTextToPoints() {
-        let (startPointsNew, endPointsNew) = FNMatchFontParser.parserText(text!)
+        let (startPointsNew, endPointsNew) = FNMatchFontParser.parserText(text!, width: self.frame.size.width)
         startPoints = startPointsNew
         endPoints = endPointsNew
     }
