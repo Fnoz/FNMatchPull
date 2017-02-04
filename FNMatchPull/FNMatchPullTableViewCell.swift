@@ -9,7 +9,7 @@
 import UIKit
 
 class FNMatchPullTableViewCell: UITableViewCell {
-    var centerImageView: UIImageView = UIImageView.init(frame: CGRectMake(0, 0, 80, 76))
+    var centerImageView: UIImageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: 80, height: 76))
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

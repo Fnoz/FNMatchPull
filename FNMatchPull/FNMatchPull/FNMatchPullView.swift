@@ -19,7 +19,7 @@ class FNMatchPullView: UIView {
     var startPoints:NSArray?
     var endPoints:NSArray?
     var matchViews:NSMutableArray = []
-    var timer:NSTimer!
+    var timer:Timer!
     var progress:CGFloat = 0.0 {
         didSet {
             refreshView(progress)
@@ -46,7 +46,7 @@ class FNMatchPullView: UIView {
             }
         }
         
-        if style == .Text {
+        if style == .text {
             updateTextToPoints()
         }
         
@@ -59,24 +59,24 @@ class FNMatchPullView: UIView {
         //build new matchs
         for i in 0 ... (startPoints?.count)! - 1 {
             let match = FNMatchPullMatch.init()
-            match.backgroundColor = UIColor.whiteColor()
+            match.backgroundColor = UIColor.white
             match.alpha = 0.3
-            let startPoint = (startPoints?[i] as! NSValue).CGPointValue()
-            let endPoint = (endPoints?[i] as! NSValue).CGPointValue()
+            let startPoint = (startPoints?[i] as! NSValue).cgPointValue
+            let endPoint = (endPoints?[i] as! NSValue).cgPointValue
             let aaa = (endPoint.x - startPoint.x)*(endPoint.x - startPoint.x)+(endPoint.y - startPoint.y)*(endPoint.y - startPoint.y)
-            match.frame = CGRectMake(0, 0, sqrt(aaa), lineWidth)
+            match.frame = CGRect(x: 0, y: 0, width: sqrt(aaa), height: lineWidth)
             if i%2 == 0 {
-                match.center = CGPointMake((startPoint.x + endPoint.x)/2 - horizontalMove, (startPoint.y + endPoint.y)/2 - verticalMove)
+                match.center = CGPoint(x: (startPoint.x + endPoint.x)/2 - horizontalMove, y: (startPoint.y + endPoint.y)/2 - verticalMove)
             }
             else {
-                match.center = CGPointMake((startPoint.x + endPoint.x)/2 + horizontalMove, (startPoint.y + endPoint.y)/2 - verticalMove)
+                match.center = CGPoint(x: (startPoint.x + endPoint.x)/2 + horizontalMove, y: (startPoint.y + endPoint.y)/2 - verticalMove)
             }
             match.oriCenter = match.center
             match.angle = atan((endPoint.y - startPoint.y)/(endPoint.x - startPoint.x)) + CGFloat(M_PI)
-            let rotate = CGAffineTransformMakeRotation(CGFloat(-M_PI) + match.angle)
-            match.transform = CGAffineTransformScale(rotate, 0, 0)
+            let rotate = CGAffineTransform(rotationAngle: CGFloat(-M_PI) + match.angle)
+            match.transform = rotate.scaledBy(x: 0, y: 0)
             addSubview(match)
-            matchViews.addObject(match)
+            matchViews.add(match)
         }
     }
     
@@ -86,7 +86,7 @@ class FNMatchPullView: UIView {
         endPoints = endPointsNew
     }
     
-    func refreshView(progress:CGFloat) {
+    func refreshView(_ progress:CGFloat) {
         let validProgress = min(progress, 1.0)  //限制到1以下
         if matchViews.count == 0 {
             return
@@ -101,20 +101,20 @@ class FNMatchPullView: UIView {
             else if progressHandled>1 {
                 progressHandled = 1
             }
-            let startPoint = (startPoints![i] as! NSValue).CGPointValue()
-            let endPoint = (endPoints![i] as! NSValue).CGPointValue()
-            let centerPoint = CGPointMake((startPoint.x + endPoint.x)/2, (startPoint.y + endPoint.y)/2)
+            let startPoint = (startPoints![i] as! NSValue).cgPointValue
+            let endPoint = (endPoints![i] as! NSValue).cgPointValue
+            let centerPoint = CGPoint(x: (startPoint.x + endPoint.x)/2, y: (startPoint.y + endPoint.y)/2)
             let newCenterPoint:CGPoint
             let match = matchViews[i] as! FNMatchPullMatch
             if i%2 == 0 {
-                newCenterPoint = CGPointMake(centerPoint.x - horizontalMove * (1 - progressHandled), centerPoint.y - verticalMove * (1 - progressHandled))
-                let rotate = CGAffineTransformMakeRotation(match.angle + CGFloat(M_PI) * progressHandled)
-                match.transform = CGAffineTransformScale(rotate, progressHandled, progressHandled)
+                newCenterPoint = CGPoint(x: centerPoint.x - horizontalMove * (1 - progressHandled), y: centerPoint.y - verticalMove * (1 - progressHandled))
+                let rotate = CGAffineTransform(rotationAngle: match.angle + CGFloat(M_PI) * progressHandled)
+                match.transform = rotate.scaledBy(x: progressHandled, y: progressHandled)
             }
             else {
-                newCenterPoint = CGPointMake(centerPoint.x + horizontalMove * (1 - progressHandled), centerPoint.y - verticalMove * (1 - progressHandled))
-                let rotate = CGAffineTransformMakeRotation(match.angle + CGFloat(M_PI) * progressHandled)
-                match.transform = CGAffineTransformScale(rotate, progressHandled, progressHandled)
+                newCenterPoint = CGPoint(x: centerPoint.x + horizontalMove * (1 - progressHandled), y: centerPoint.y - verticalMove * (1 - progressHandled))
+                let rotate = CGAffineTransform(rotationAngle: match.angle + CGFloat(M_PI) * progressHandled)
+                match.transform = rotate.scaledBy(x: progressHandled, y: progressHandled)
             }
             match.center = newCenterPoint
         }
@@ -123,7 +123,7 @@ class FNMatchPullView: UIView {
     func startBling() {
         timer?.invalidate()
         timer = nil
-        timer = NSTimer.scheduledTimerWithTimeInterval(2.1,
+        timer = Timer.scheduledTimer(timeInterval: 2.1,
                                                        target:self,selector:#selector(addAnimation),
                                                        userInfo:nil,repeats:true)
         timer.fire()
@@ -136,10 +136,10 @@ class FNMatchPullView: UIView {
         let interval = 1.3/Double(matchViews.count)
         for i in 0 ... matchViews.count - 1 {
             let match = matchViews[i] as! FNMatchPullMatch
-            UIView.animateWithDuration(0.4, delay: interval * Double(i), options: .CurveLinear, animations: {
+            UIView.animate(withDuration: 0.4, delay: interval * Double(i), options: .curveLinear, animations: {
                 match.alpha = 1;
                 }, completion: { (fff) in
-                    UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
                         match.alpha = 0.4
                         }, completion: nil)
             })
@@ -157,18 +157,18 @@ class FNMatchPullView: UIView {
             match.layer.removeAllAnimations()
         }
         
-        UIView.animateWithDuration(1) { 
-            self.frame = CGRectMake(self.frame.origin.x, pullViewHeight/2, self.frame.size.width, self.frame.size.height)
-        }
+        UIView.animate(withDuration: 1, animations: { 
+            self.frame = CGRect(x: self.frame.origin.x, y: pullViewHeight/2, width: self.frame.size.width, height: self.frame.size.height)
+        }) 
         
         //delay a bit of time as progress = 0 will perform later
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.01 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        let delayTime = DispatchTime.now() + Double(Int64(0.01 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             for i in 0 ... self.matchViews.count - 1 {
                 let match = self.matchViews[i] as! FNMatchPullMatch
-                UIView.animateWithDuration(0.5, delay: 0.6/Double(self.matchViews.count) * Double(self.matchViews.count - i), options: .CurveLinear, animations: {
-                    let rotate = CGAffineTransformMakeRotation(match.angle)
-                    match.transform = CGAffineTransformScale(rotate, 0.1, 0.1)
+                UIView.animate(withDuration: 0.5, delay: 0.6/Double(self.matchViews.count) * Double(self.matchViews.count - i), options: .curveLinear, animations: {
+                    let rotate = CGAffineTransform(rotationAngle: match.angle)
+                    match.transform = rotate.scaledBy(x: 0.1, y: 0.1)
                     match.center = match.oriCenter
                     }, completion: nil)
             }

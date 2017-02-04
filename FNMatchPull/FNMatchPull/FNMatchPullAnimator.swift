@@ -9,8 +9,8 @@
 import UIKit
 
 enum FNMatchPullStyle:NSInteger{
-    case Pattern = 0
-    case Text = 1
+    case pattern = 0
+    case text = 1
 }
 
 class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
@@ -45,17 +45,17 @@ class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
             matchPullView.initMatch()
         }
     }
-    private let layerLoader = CAShapeLayer()
-    private let layerSeparator = CAShapeLayer()
+    fileprivate let layerLoader = CAShapeLayer()
+    fileprivate let layerSeparator = CAShapeLayer()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        matchPullView = FNMatchPullView.init(frame:CGRectMake(0, 0, frame.size.width, frame.size.height))
+        matchPullView = FNMatchPullView.init(frame:CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
         matchPullView.initMatch()
         addSubview(matchPullView);
         
-        let line = UIView.init(frame: CGRectMake(0, frame.size.height - 1, SCREENWIDTH, 1))
+        let line = UIView.init(frame: CGRect(x: 0, y: frame.size.height - 1, width: SCREENWIDTH, height: 1))
         line.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         addSubview(line)
     }
@@ -64,21 +64,21 @@ class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func pullToRefresh(view: FNPullToRefreshView, progressDidChange progress: CGFloat) {
+    func pullToRefresh(_ view: FNPullToRefreshView, progressDidChange progress: CGFloat) {
         let validProgress = CGFloat(min(progress, 1.0))
         matchPullView.progress = validProgress
-        matchPullView.center = CGPointMake(matchPullView.center.x, frame.size.height/2 + frame.size.height/2 * (1 - validProgress))
+        matchPullView.center = CGPoint(x: matchPullView.center.x, y: frame.size.height/2 + frame.size.height/2 * (1 - validProgress))
     }
     
-    func pullToRefresh(view: FNPullToRefreshView, stateDidChange state: FNPullToRefreshViewState) {
+    func pullToRefresh(_ view: FNPullToRefreshView, stateDidChange state: FNPullToRefreshViewState) {
         
     }
     
-    func pullToRefreshAnimationDidEnd(view: FNPullToRefreshView) {
+    func pullToRefreshAnimationDidEnd(_ view: FNPullToRefreshView) {
         matchPullView.endBling()
     }
     
-    func pullToRefreshAnimationDidStart(view: FNPullToRefreshView) {
+    func pullToRefreshAnimationDidStart(_ view: FNPullToRefreshView) {
         matchPullView.startBling()
     }
     

@@ -36,23 +36,23 @@ extension UIScrollView {
         }
     }
     
-    public func addPullToRefreshWithAction(action:(() -> ())) {
-        let pullToRefreshView = FNPullToRefreshView(action: action, frame: CGRectMake(0, -pullToRefreshDefaultHeight, self.frame.size.width, pullToRefreshDefaultHeight))
+    public func addPullToRefreshWithAction(_ action:@escaping (() -> ())) {
+        let pullToRefreshView = FNPullToRefreshView(action: action, frame: CGRect(x: 0, y: -pullToRefreshDefaultHeight, width: self.frame.size.width, height: pullToRefreshDefaultHeight))
         pullToRefreshView.tag = pullToRefreshTag
         addSubview(pullToRefreshView)
     }
 
-    public func addPullToRefreshWithAction(action:(() -> ()), withAnimator animator: FNPullToRefreshViewDelegate, withSubview subview: UIView) {
+    public func addPullToRefreshWithAction(_ action:@escaping (() -> ()), withAnimator animator: FNPullToRefreshViewDelegate, withSubview subview: UIView) {
         let height = subview.frame.height
-        let pullToRefreshView = FNPullToRefreshView(action: action, frame: CGRectMake(0, -height, self.frame.size.width, height), animator: animator, subview: subview)
+        let pullToRefreshView = FNPullToRefreshView(action: action, frame: CGRect(x: 0, y: -height, width: self.frame.size.width, height: height), animator: animator, subview: subview)
         pullToRefreshView.tag = pullToRefreshTag
         addSubview(pullToRefreshView)
     }
     
     //
-    public func addPullToRefreshWithAction<T: UIView where T: FNPullToRefreshViewDelegate>(action:(() -> ()), withAnimator animator: T) {
+    public func addPullToRefreshWithAction<T: UIView>(_ action:@escaping (() -> ()), withAnimator animator: T) where T: FNPullToRefreshViewDelegate {
         let height = animator.frame.height
-        let pullToRefreshView = FNPullToRefreshView(action: action, frame: CGRectMake(0, -height, self.frame.size.width, height), animator: animator, subview: animator)
+        let pullToRefreshView = FNPullToRefreshView(action: action, frame: CGRect(x: 0, y: -height, width: self.frame.size.width, height: height), animator: animator, subview: animator)
         pullToRefreshView.tag = pullToRefreshTag
         addSubview(pullToRefreshView)
     }

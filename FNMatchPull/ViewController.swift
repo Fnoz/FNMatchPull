@@ -8,8 +8,8 @@
 
 import UIKit
 
-let SCREENWIDTH = UIScreen.mainScreen().bounds.width
-let SCREENHEIGHT = UIScreen.mainScreen().bounds.height
+let SCREENWIDTH = UIScreen.main.bounds.width
+let SCREENHEIGHT = UIScreen.main.bounds.height
 
 class ViewController: UINavigationController, UITableViewDelegate, UITableViewDataSource {
     var tableView:UITableView!
@@ -17,7 +17,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let titleLabel = UILabel.init(frame: CGRectMake(10, 25, 150, 44))
+        let titleLabel = UILabel.init(frame: CGRect(x: 10, y: 25, width: 150, height: 44))
         titleLabel.text = "FNMatchPullDemo"
         titleLabel.textColor = UIColor.init(red: 94/255.0, green: 89/255.0, blue: 151/255.0, alpha: 1)
         view.addSubview(titleLabel)
@@ -25,14 +25,14 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         
         
         for i in 0 ... 2 {
-            let btn = UIButton.init(frame: CGRectMake(SCREENWIDTH - 60 * CGFloat(i + 1), 35, 45, 24))
-            btn.setTitle(NSString.init(format: "Mode%d", 2 - i) as String, forState: .Normal)
-            btn.titleLabel?.font = UIFont.systemFontOfSize(12)
+            let btn = UIButton.init(frame: CGRect(x: SCREENWIDTH - 60 * CGFloat(i + 1), y: 35, width: 45, height: 24))
+            btn.setTitle(NSString.init(format: "Mode%d", 2 - i) as String, for: UIControlState())
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             btn.backgroundColor = UIColor.init(red: 94/255.0, green: 89/255.0, blue: 151/255.0, alpha: 1)
             btn.tag = 100 + 2 - i
             btn.layer.cornerRadius = 5
             view.addSubview(btn)
-            btn.addTarget(self, action: #selector(modeChange(_:)), forControlEvents: .TouchUpInside)
+            btn.addTarget(self, action: #selector(modeChange(_:)), for: .touchUpInside)
         }
         
         tableView = newTableView()
@@ -40,7 +40,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         mode0()        
     }
     
-    func modeChange(btn:UIButton) {
+    func modeChange(_ btn:UIButton) {
         tableView?.removeFromSuperview()
         tableView = newTableView()
         view.addSubview(tableView)
@@ -61,35 +61,35 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
     
     func mode0() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
-        matchAnimator.startPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 30, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 25)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 55)),
-                                     NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 30, 25))]
-        matchAnimator.endPoints = [NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 - 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 - 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 - 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 - 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 + 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 - 15 + 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 + 30, 40)),
-                                   NSValue.init(CGPoint: CGPointMake(SCREENWIDTH/2 + 15 + 30, 40))]
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 80))
+        matchAnimator.startPoints = [NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 30, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 30, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 30, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 30, y: 25))]
+        matchAnimator.endPoints = [NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15 - 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15 - 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15 - 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15 - 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15 + 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15 + 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15 + 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15 + 30, y: 40))]
         tableView.addPullToRefreshWithAction({
-            NSOperationQueue().addOperationWithBlock {
+            OperationQueue().addOperation {
                 sleep(4)
-                NSOperationQueue.mainQueue().addOperationWithBlock {
+                OperationQueue.main.addOperation {
                     self.tableView.stopPullToRefresh()
                 }
             }
@@ -97,13 +97,13 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
     
     func mode1() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 80))
         matchAnimator.text = "HELLO,FNOZ"
-        matchAnimator.style = .Text
+        matchAnimator.style = .text
         tableView.addPullToRefreshWithAction({
-            NSOperationQueue().addOperationWithBlock {
+            OperationQueue().addOperation {
                 sleep(4)
-                NSOperationQueue.mainQueue().addOperationWithBlock {
+                OperationQueue.main.addOperation {
                     self.tableView.stopPullToRefresh()
                 }
             }
@@ -111,14 +111,14 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
     
     func mode2() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 80))
         matchAnimator.text = "HELLO,FNOZ"
-        matchAnimator.style = .Text
+        matchAnimator.style = .text
         matchAnimator.lineWidth = 4.0
         tableView.addPullToRefreshWithAction({
-            NSOperationQueue().addOperationWithBlock {
+            OperationQueue().addOperation {
                 sleep(4)
-                NSOperationQueue.mainQueue().addOperationWithBlock {
+                OperationQueue.main.addOperation {
                     self.tableView.stopPullToRefresh()
                 }
             }
@@ -126,11 +126,11 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
 
     func newTableView() -> UITableView {
-        let newTableView = UITableView.init(frame: CGRectMake(0, 64, self.view.bounds.width, self.view.bounds.height - 64), style: UITableViewStyle.Plain)
+        let newTableView = UITableView.init(frame: CGRect(x: 0, y: 64, width: self.view.bounds.width, height: self.view.bounds.height - 64), style: UITableViewStyle.plain)
         newTableView.delegate = self
         newTableView.backgroundColor =  UIColor.init(red: 45/255.0, green: 45/255.0, blue: 45/255.0, alpha: 1)
         newTableView.dataSource = self
-        newTableView.separatorStyle = .SingleLineEtched
+        newTableView.separatorStyle = .singleLineEtched
         newTableView.showsVerticalScrollIndicator = false
         return newTableView
     }
@@ -140,23 +140,23 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: FNMatchPullTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FNMatchPullTableViewCell") as? FNMatchPullTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: FNMatchPullTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "FNMatchPullTableViewCell") as? FNMatchPullTableViewCell
         if (cell == nil) {
-            cell = FNMatchPullTableViewCell(style: .Default, reuseIdentifier: "FNMatchPullTableViewCell")
+            cell = FNMatchPullTableViewCell(style: .default, reuseIdentifier: "FNMatchPullTableViewCell")
         }
         cell?.contentView.backgroundColor = UIColor.init(red: 45/255.0, green: 45/255.0, blue: 45/255.0, alpha: 1)
         cell?.centerImageView.image = UIImage.init(named: NSString.init(format: "icn_%d", (indexPath.row+1)%3) as String)
-        cell?.centerImageView.center = CGPointMake(view.bounds.size.width/2, 85)
-        cell?.selectionStyle = UITableViewCellSelectionStyle.None
+        cell?.centerImageView.center = CGPoint(x: view.bounds.size.width/2, y: 85)
+        cell?.selectionStyle = UITableViewCellSelectionStyle.none
         return cell!
     }
 }
