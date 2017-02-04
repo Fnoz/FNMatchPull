@@ -81,6 +81,10 @@ class FNMatchPullView: UIView {
     }
     
     func updateTextToPoints() {
+        // Fix the issue that app will crash if text is nil
+        if text == nil {
+            return
+        }
         let (startPointsNew, endPointsNew) = FNMatchFontParser.parserText(text!, width: self.frame.size.width)
         startPoints = startPointsNew
         endPoints = endPointsNew
