@@ -20,6 +20,10 @@
 		10C136D01D1EEF5D00D63AAF /* FNPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */; };
 		10C136D21D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136D11D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift */; };
 		10C136D41D1F7AA700D63AAF /* FNMatchFontParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C136D31D1F7AA700D63AAF /* FNMatchFontParser.swift */; };
+		E4A97BEE1E4588DA002D62A4 /* FNMatchPull.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E4A97BEA1E4588DA002D62A4 /* FNMatchPull.podspec */; };
+		E4A97BEF1E4588DA002D62A4 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E4A97BEB1E4588DA002D62A4 /* LICENSE */; };
+		E4A97BF01E4588DA002D62A4 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E4A97BEC1E4588DA002D62A4 /* README.md */; };
+		E4A97BF11E4588DA002D62A4 /* README.zh-CN.md in Sources */ = {isa = PBXBuildFile; fileRef = E4A97BED1E4588DA002D62A4 /* README.zh-CN.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNPullToRefreshView.swift; sourceTree = "<group>"; };
 		10C136D11D1EEF8A00D63AAF /* FNMatchPullTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchPullTableViewCell.swift; sourceTree = "<group>"; };
 		10C136D31D1F7AA700D63AAF /* FNMatchFontParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FNMatchFontParser.swift; sourceTree = "<group>"; };
+		E4A97BEA1E4588DA002D62A4 /* FNMatchPull.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FNMatchPull.podspec; sourceTree = "<group>"; };
+		E4A97BEB1E4588DA002D62A4 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E4A97BEC1E4588DA002D62A4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E4A97BED1E4588DA002D62A4 /* README.zh-CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "README.zh-CN.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		10C136A61D1EEF0000D63AAF = {
 			isa = PBXGroup;
 			children = (
+				E4A97BE91E4588CE002D62A4 /* Podspec */,
 				10C136B11D1EEF0000D63AAF /* FNMatchPull */,
 				10C136B01D1EEF0000D63AAF /* Products */,
 			);
@@ -94,6 +103,17 @@
 				10C136CA1D1EEF5D00D63AAF /* FNPullToRefreshView.swift */,
 			);
 			path = FNMatchPull;
+			sourceTree = "<group>";
+		};
+		E4A97BE91E4588CE002D62A4 /* Podspec */ = {
+			isa = PBXGroup;
+			children = (
+				E4A97BEA1E4588DA002D62A4 /* FNMatchPull.podspec */,
+				E4A97BEB1E4588DA002D62A4 /* LICENSE */,
+				E4A97BEC1E4588DA002D62A4 /* README.md */,
+				E4A97BED1E4588DA002D62A4 /* README.zh-CN.md */,
+			);
+			name = Podspec;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,8 +176,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				10C136BD1D1EEF0000D63AAF /* LaunchScreen.storyboard in Resources */,
+				E4A97BEE1E4588DA002D62A4 /* FNMatchPull.podspec in Resources */,
 				10C136BA1D1EEF0000D63AAF /* Assets.xcassets in Resources */,
 				10C136B81D1EEF0000D63AAF /* Main.storyboard in Resources */,
+				E4A97BEF1E4588DA002D62A4 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +192,7 @@
 			files = (
 				10C136CB1D1EEF5D00D63AAF /* FNAnimator.swift in Sources */,
 				10C136CF1D1EEF5D00D63AAF /* FNPullToRefreshExtension.swift in Sources */,
+				E4A97BF11E4588DA002D62A4 /* README.zh-CN.md in Sources */,
 				10C136CC1D1EEF5D00D63AAF /* FNMatchPullAnimator.swift in Sources */,
 				10C136CD1D1EEF5D00D63AAF /* FNMatchPullMatch.swift in Sources */,
 				10C136D01D1EEF5D00D63AAF /* FNPullToRefreshView.swift in Sources */,
@@ -177,6 +200,7 @@
 				10C136CE1D1EEF5D00D63AAF /* FNMatchPullView.swift in Sources */,
 				10C136D41D1F7AA700D63AAF /* FNMatchFontParser.swift in Sources */,
 				10C136B51D1EEF0000D63AAF /* ViewController.swift in Sources */,
+				E4A97BF01E4588DA002D62A4 /* README.md in Sources */,
 				10C136B31D1EEF0000D63AAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

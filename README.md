@@ -1,10 +1,11 @@
 # FNMatchPull
-Swift实现的火柴图案&火柴文字下拉刷新动效（超炫酷下拉刷新），Swift&加强版本CBStoreHouseRefreshControl.
+A match character and pattern refresh control by Swift based in [CBStoreHouseRefreshControl](https://github.com/coolbeet/CBStoreHouseRefreshControl).
 
-###基础使用Demo：
+Simplified Chinese is here [简体中文](https://github.com/Fnoz/FNMatchPull/blob/master/README.zh-CN.md).
+###Demo：
 
-####Style = .Pattern类型
-动画内容为火柴棒组成的图案
+####Style = .Pattern
+Animation can be created by points.
 
 ```
 let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
@@ -17,9 +18,8 @@ tableView.addPullToRefreshWithAction({
     }, withAnimator: matchAnimator)
 ```
 
-####Style = .Text类型
-传入英文字符串，自动转换为图案动画，可自定义线条宽度
-
+####Style = .Text
+Animation can be created by English letters. Line width can be defined by yourself.
 ```
 let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
 matchAnimator.text = "FNOZ"
@@ -30,11 +30,12 @@ tableView.addPullToRefreshWithAction({
     }, withAnimator: matchAnimator)
 ```
 
-###效果：
+###Effect：
 ![Animating](readme_images/00.gif)
 ![Animating](readme_images/01.gif)
 
 ![Animating](readme_images/02.gif)
 
-###来源：
-OC原版是 [coolbeet](https://github.com/coolbeet) 的 [CBStoreHouseRefreshControl](https://github.com/coolbeet/CBStoreHouseRefreshControl)，另外增加了酷酷的直接把英文字符串变成图片的功能。
+###Source：
+The Objective-C edition is [CBStoreHouseRefreshControl](https://github.com/coolbeet/CBStoreHouseRefreshControl) by [coolbeet](https://github.com/coolbeet).
+Our FNMatchPull can transfer English letters to pattern direclty.
