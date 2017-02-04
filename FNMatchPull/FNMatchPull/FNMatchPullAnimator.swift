@@ -8,38 +8,47 @@
 
 import UIKit
 
-enum FNMatchPullStyle:NSInteger{
+// Pull down style, support text and pattern
+public enum FNMatchPullStyle: NSInteger {
     case pattern = 0
     case text = 1
 }
 
-class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
-    var matchPullView:FNMatchPullView!
-    var style:FNMatchPullStyle! {
+public class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
+    
+    var matchPullView: FNMatchPullView!
+    
+    // Pull down style
+    public var style: FNMatchPullStyle! {
         didSet {
             matchPullView.style = style
             matchPullView.initMatch()
         }
     }
-    var text:NSString! {
+    
+    // Text charaters, supports English letters and comma.
+    public var text: NSString! {
         didSet {
             matchPullView.text = text
             matchPullView.initMatch()
         }
     }
-    var lineWidth:CGFloat? {
+    
+    public var lineWidth:CGFloat? {
         didSet {
             matchPullView.lineWidth = lineWidth
             matchPullView.initMatch()
         }
     }
-    var startPoints:NSArray? {
+    
+    public var startPoints:NSArray? {
         didSet {
             matchPullView.startPoints = startPoints!
             matchPullView.initMatch()
         }
     }
-    var endPoints:NSArray? {
+    
+    public var endPoints:NSArray? {
         didSet {
             matchPullView.endPoints = endPoints!
             matchPullView.initMatch()
@@ -48,7 +57,7 @@ class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
     fileprivate let layerLoader = CAShapeLayer()
     fileprivate let layerSeparator = CAShapeLayer()
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         
         matchPullView = FNMatchPullView.init(frame:CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
@@ -60,25 +69,25 @@ class FNMatchPullAnimator: UIView, FNPullToRefreshViewDelegate {
         addSubview(line)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func pullToRefresh(_ view: FNPullToRefreshView, progressDidChange progress: CGFloat) {
+    public func pullToRefresh(_ view: FNPullToRefreshView, progressDidChange progress: CGFloat) {
         let validProgress = CGFloat(min(progress, 1.0))
         matchPullView.progress = validProgress
         matchPullView.center = CGPoint(x: matchPullView.center.x, y: frame.size.height/2 + frame.size.height/2 * (1 - validProgress))
     }
     
-    func pullToRefresh(_ view: FNPullToRefreshView, stateDidChange state: FNPullToRefreshViewState) {
+    public func pullToRefresh(_ view: FNPullToRefreshView, stateDidChange state: FNPullToRefreshViewState) {
         
     }
     
-    func pullToRefreshAnimationDidEnd(_ view: FNPullToRefreshView) {
+    public func pullToRefreshAnimationDidEnd(_ view: FNPullToRefreshView) {
         matchPullView.endBling()
     }
     
-    func pullToRefreshAnimationDidStart(_ view: FNPullToRefreshView) {
+    public func pullToRefreshAnimationDidStart(_ view: FNPullToRefreshView) {
         matchPullView.startBling()
     }
     
