@@ -7,9 +7,9 @@ Swift实现的火柴图案&火柴文字下拉刷新动效（超炫酷下拉刷�
 ```ruby
 pod 'FNMatchPull', '~> 0.2'
 ```
-###基础使用Demo
+### 基础使用Demo
 
-####Style = .Pattern类型
+#### Style = .Pattern类型
 动画内容为火柴棒组成的图案
 
 ```
@@ -23,7 +23,7 @@ tableView.addPullToRefreshWithAction({
 }, withAnimator: matchAnimator)
 ```
 
-####Style = .Text类型
+#### Style = .Text类型
 传入英文字符串，自动转换为图案动画，可自定义线条宽度
 
 ```
@@ -36,11 +36,11 @@ tableView.addPullToRefreshWithAction({
 }, withAnimator: matchAnimator)
 ```
 
-###效果
+### 效果
 ![Animating](readme_images/00.gif)
 ![Animating](readme_images/01.gif)
 
 ![Animating](readme_images/02.gif)
 
-###来源
+### 来源
 OC原版是 [coolbeet](https://github.com/coolbeet) 的 [CBStoreHouseRefreshControl](https://github.com/coolbeet/CBStoreHouseRefreshControl)，另外增加了酷酷的直接把英文字符串变成图片的功能。

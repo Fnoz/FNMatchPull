@@ -11,9 +11,9 @@ Installing FNMatchPull by [CocoaPods](http://cocoapods.org/).
 pod 'FNMatchPull', '~> 0.2'
 ```
 
-###Demo：
+### Demo：
 
-####Style = .Pattern
+#### Style = .Pattern
 Animation can be created by points.
 
 ```
@@ -27,7 +27,7 @@ tableView.addPullToRefreshWithAction({
     }, withAnimator: matchAnimator)
 ```
 
-####Style = .Text
+#### Style = .Text
 Animation can be created by English letters. Line width can be defined by yourself.
 ```
 let matchAnimator = FNMatchPullAnimator(frame: CGRectMake(0, 0, 320, 80))
@@ -39,12 +39,12 @@ tableView.addPullToRefreshWithAction({
     }, withAnimator: matchAnimator)
 ```
 
-###Effect：
+### Effect：
 ![Animating](readme_images/00.gif)
 ![Animating](readme_images/01.gif)
 
 ![Animating](readme_images/02.gif)
 
-###Source：
+### Source：
 The Objective-C edition is [CBStoreHouseRefreshControl](https://github.com/coolbeet/CBStoreHouseRefreshControl) by [coolbeet](https://github.com/coolbeet).
 Our FNMatchPull can transfer English letters to pattern direclty.
