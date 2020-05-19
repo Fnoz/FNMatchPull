@@ -40,7 +40,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         mode0()        
     }
     
-    func modeChange(_ btn:UIButton) {
+    @objc func modeChange(_ btn:UIButton) {
         tableView?.removeFromSuperview()
         tableView = newTableView()
         view.addSubview(tableView)
