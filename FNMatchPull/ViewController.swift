@@ -8,8 +8,10 @@
 
 import UIKit
 
-let SCREENWIDTH = UIScreen.main.bounds.width
-let SCREENHEIGHT = UIScreen.main.bounds.height
+let kScreenWidth = Double(UIScreen.main.bounds.size.width)
+let kScreenHeight = Double(UIScreen.main.bounds.size.height)
+let kIsXMoreScreen = (kScreenHeight >= 812.0)
+let kAdjustedTop = kIsXMoreScreen ? 24.0 : 0.0
 
 class ViewController: UINavigationController, UITableViewDelegate, UITableViewDataSource {
     var tableView:UITableView!
@@ -17,7 +19,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let titleLabel = UILabel.init(frame: CGRect(x: 10, y: 25, width: 150, height: 44))
+        let titleLabel = UILabel.init(frame: CGRect(x: 10, y: kAdjustedTop + 25, width: 150, height: 44))
         titleLabel.text = "FNMatchPullDemo"
         titleLabel.textColor = UIColor.init(red: 94/255.0, green: 89/255.0, blue: 151/255.0, alpha: 1)
         view.addSubview(titleLabel)
@@ -25,7 +27,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
         
         
         for i in 0 ... 2 {
-            let btn = UIButton.init(frame: CGRect(x: SCREENWIDTH - 60 * CGFloat(i + 1), y: 35, width: 45, height: 24))
+            let btn = UIButton.init(frame: CGRect(x: kScreenWidth - 60 * Double(i + 1), y: kAdjustedTop + 35, width: 45, height: 24))
             btn.setTitle(NSString.init(format: "Mode%d", 2 - i) as String, for: UIControlState())
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             btn.backgroundColor = UIColor.init(red: 94/255.0, green: 89/255.0, blue: 151/255.0, alpha: 1)
@@ -61,31 +63,31 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
     
     func mode0() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: SCREENWIDTH, height: 80))
-        matchAnimator.startPoints = [NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 25)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 55)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 55)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 30, y: 25)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2, y: 25)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2, y: 55)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2, y: 55)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2, y: 25)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 30, y: 25)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 30, y: 55)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 30, y: 55)),
-                                     NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 30, y: 25))]
-        matchAnimator.endPoints = [NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15 - 30, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15 - 30, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15 - 30, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15 - 30, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15 + 30, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 - 15 + 30, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15 + 30, y: 40)),
-                                   NSValue.init(cgPoint: CGPoint(x: SCREENWIDTH/2 + 15 + 30, y: 40))]
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 80))
+        matchAnimator.startPoints = [NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 30, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 30, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 30, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 30, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 30, y: 25)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 30, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 30, y: 55)),
+                                     NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 30, y: 25))]
+        matchAnimator.endPoints = [NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 15 - 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 15 - 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 15 - 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 15 - 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 15, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 15, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 15, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 15, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 15 + 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 - 15 + 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 15 + 30, y: 40)),
+                                   NSValue.init(cgPoint: CGPoint(x: kScreenWidth/2 + 15 + 30, y: 40))]
         tableView.addPullToRefreshWithAction({
             OperationQueue().addOperation {
                 sleep(4)
@@ -97,7 +99,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
     
     func mode1() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: SCREENWIDTH, height: 80))
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 80))
         matchAnimator.text = "HELLO,FNOZ"
         matchAnimator.style = .text
         tableView.addPullToRefreshWithAction({
@@ -111,7 +113,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
     
     func mode2() {
-        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: SCREENWIDTH, height: 80))
+        let matchAnimator = FNMatchPullAnimator(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 80))
         matchAnimator.text = "HELLO,FNOZ"
         matchAnimator.style = .text
         matchAnimator.lineWidth = 4.0
@@ -126,7 +128,7 @@ class ViewController: UINavigationController, UITableViewDelegate, UITableViewDa
     }
 
     func newTableView() -> UITableView {
-        let newTableView = UITableView.init(frame: CGRect(x: 0, y: 64, width: self.view.bounds.width, height: self.view.bounds.height - 64), style: UITableViewStyle.plain)
+        let newTableView = UITableView.init(frame: CGRect(x: 0, y: kAdjustedTop + 64, width: kScreenWidth, height: kScreenHeight - 64), style: UITableViewStyle.plain)
         newTableView.delegate = self
         newTableView.backgroundColor =  UIColor.init(red: 45/255.0, green: 45/255.0, blue: 45/255.0, alpha: 1)
         newTableView.dataSource = self
